@@ -16,20 +16,17 @@
 		<div class="collapse navbar-collapse" id="basicExampleNav">
 			<!-- Links -->
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/">
-						<font size='3' color='black'><strong>HOME</strong></font>
-					</a></li>
 				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/bible.do">
-						<font size='3' color='black'><strong>연대기성경</strong></font>
+						<font size='2' color='black'><strong>연대기성경</strong></font>
 					</a></li>
 				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/plan.do">
-						<font size='3' color='black'><strong>연간계획</strong></font>
+						<font size='2' color='black'><strong>연간계획</strong></font>
 					</a></li>
 				<li class="nav-item"><a class="nav-link h3 my-1" href="#">
-						<font size='3' color='black'><strong>NAS</strong></font>
+						<font size='2' color='black'><strong>NAS</strong></font>
 					</a></li>
 				<li class="nav-item">
-						<a href=""  class="nav-link h3 my-1" data-toggle="modal" data-target="#modalLRForm"><font size='3' color='BLUE'><strong>LOGIN</strong></font></a>
+						<a href=""  class="nav-link h3 my-1" data-toggle="modal" data-target="#modalLRForm"><font size='2' color='BLUE'><strong>LOGIN</strong></font></a>
 					</li>
 			</ul>
 		</div>
