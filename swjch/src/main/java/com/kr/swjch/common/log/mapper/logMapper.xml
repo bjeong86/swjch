@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kr.swjch.common.log.mapper.logMapper">
+
+	<select id="getLogs" resultType="logVO">
+		select ip,
+		sessionId,
+		url,
+		userId,
+		userName,
+		regdate
+		from USAGELOG
+		where DATE_FORMAT(regdate, "%Y/%m/%d") >=
+		DATE_FORMAT(date_add(now(), interval -5 day), "%Y/%m/%d")
+		order by
+		regdate desc;
+	</select>
+
+	<select id="getLogTotalView" resultType="logVO">
+		select
+		DATE_FORMAT(regdate, "%Y/%m/%d") regdate,
+		url,
+		count(*) count
+		from USAGELOG
+		where url is not null
+		and DATE_FORMAT(regdate, "%Y/%m/%d") >= DATE_FORMAT(date_add(now(),
+		interval -5 day), "%Y/%m/%d")
+		group by url, DATE_FORMAT(regdate,
+		"%Y/%m/%d")
+		order by regdate desc, url;
+	</select>
+
+	<insert id="insertLog" parameterType="logVO">
+		insert into USAGELOG(ip,
+		sessionId, url, regdate)
+		values("${ip}", "${sessionId}", "${url}",
+		now());
+	</insert>
+
+	<select id="getTotalVisitor" resultType="String">
+		SELECT COUNT(*)
+		FROM (
+			SELECT DISTINCT SESSIONID
+			FROM USAGELOG a
+		) b;
+	</select>
+
+	<select id="getTodayVisitor" resultType="String">
+		SELECT COUNT(*)
+		FROM (
+			SELECT DISTINCT SESSIONID
+			FROM USAGELOG a
+			WHERE DATE_FORMAT(regdate, "%Y/%m/%d") = DATE_FORMAT(NOW(), "%Y/%m/%d")
+		) b;
+	</select>
+
+</mapper>

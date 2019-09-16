@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kr.swjch.source.news.mapper.newsMapper">
+
+	<select id="getMoimNewsByGubun" resultType="moimNewsVO">
+		<![CDATA[
+			SELECT id,
+				gubun,
+				title,
+				contents,
+				contentsHashcode,
+				url,
+				regdate
+			FROM (
+			SELECT @RNUM := @RNUM + 1 AS no,
+				id,
+				gubun,
+				title,
+				contents,
+				contents_hashcode AS contentsHashcode,
+				url,
+				regdate
+			FROM MOIM_NEWS a ,(SELECT @RNUM := 0) b
+			WHERE a.gubun = #{gubun}
+			ORDER BY create_date DESC
+			) s
+			WHERE NO <=10;
+		]]>
+	</select>
+	
+		<select id="getMoimNewsById" resultType="moimNewsVO">
+		<![CDATA[
+			SELECT id,
+				gubun,
+				title,
+				contents,
+				contents_hashcode AS contentsHashcode,
+				url,
+				regdate
+			FROM MOIM_NEWS a
+			WHERE a.id = #{id};
+		]]>
+	</select>
+
+</mapper>

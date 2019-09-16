@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="moimNewsVO" type="com.kr.swjch.source.news.vo.moimNewsVO"/>
+		<typeAlias alias="bibleContentsVO" type="com.kr.swjch.source.bible.vo.bibleContentsVO"/>
+		<typeAlias alias="bibleScheduleVO" type="com.kr.swjch.source.bible.vo.bibleScheduleVO"/>
+		<typeAlias alias="calendarVO" type="com.kr.swjch.source.plan.vo.calendarVO"/>
+		<typeAlias alias="logVO" type="com.kr.swjch.common.log.vo.logVO"/>
+	</typeAliases>
+</configuration>

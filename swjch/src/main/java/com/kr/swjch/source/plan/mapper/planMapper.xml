@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kr.swjch.source.plan.mapper.planMapper">
+
+	<select id="getPlanInfoByYear" resultType="calendarVO">
+		select ID as id,
+			CATEGORY as category, 
+			TITLE as title,
+			YEAR as year, 	
+			MONTH_1 as month_1, 
+			MONTH_2 as month_2, 				
+			MONTH_3 as month_3, 				
+			MONTH_4 as month_4, 			
+			MONTH_5 as month_5, 
+			MONTH_6 as month_6, 		
+			MONTH_7 as month_7, 		
+			MONTH_8 as month_8, 
+			MONTH_9 as month_9,
+			MONTH_10 as month_10,
+			MONTH_11 as month_11,
+			MONTH_12 as month_12
+		from CALENDAR
+		where year in (#{year});
+	</select>
+
+</mapper>

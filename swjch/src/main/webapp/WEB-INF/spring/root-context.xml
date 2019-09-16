@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<!-- 개발 DB 
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
+		<property name="url" value="jdbc:mysql://115.68.216.149:3306/swjch?characterEncoding=euckr&amp;useSSL=false&amp;autoReconnection=true"></property> 
+		<property name="username" value="root"></property> 
+		<property name="password" value="rlwns1@qazxQ"></property> 
+	</bean> --> 
+	 
+	<!-- 수원중부 까페 24 -->
+		<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost/swjch?characterEncoding=euckr"></property>
+		<property name="username" value="swjch"></property>
+		<property name="password" value="sjch0191!!"></property>
+	</bean>
+	
+
+	<!-- SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath*:com/kr/swjch/source/news/mapper/*.xml</value>
+				<value>classpath*:com/kr/swjch/source/bible/mapper/*.xml</value>
+				<value>classpath*:com/kr/swjch/source/plan/mapper/*.xml</value>
+				<value>classpath*:com/kr/swjch/common/log/mapper/*.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- ajax json -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
+		id="viewResolver" />
+	<bean
+		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"
+		id="jsonView">
+		<property name="contentType" value="application/json;charset=UTF-8" />
+	</bean>
+
+	<!-- 멀티파트 리졸버 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 최대업로드 가능한 바이트크기 -->
+		<property name="maxUploadSize" value="52428800" />
+
+		<!-- 디스크에 임시 파일을 생성하기 전에 메모리에 보관할수있는 최대 바이트 크기 -->
+		<!-- property name="maxInMemorySize" value="52428800" / -->
+		<!-- defaultEncoding -->
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
+
+	<!-- SqlSessionTemplate -->
+	<bean id="sqlSessoinTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+
+	<!-- bean 등록 -->
+	<context:component-scan base-package="com.kr.swjch.source.*.*"></context:component-scan>
+	<context:component-scan base-package="com.kr.swjch.common.*.*"></context:component-scan>
+	<context:component-scan base-package="com.kr.swjch.admin.*.*"></context:component-scan>
+</beans>
