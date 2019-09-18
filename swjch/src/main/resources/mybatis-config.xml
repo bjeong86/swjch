@@ -7,5 +7,6 @@
 		<typeAlias alias="bibleScheduleVO" type="com.kr.swjch.source.bible.vo.bibleScheduleVO"/>
 		<typeAlias alias="calendarVO" type="com.kr.swjch.source.plan.vo.calendarVO"/>
 		<typeAlias alias="logVO" type="com.kr.swjch.common.log.vo.logVO"/>
+		<typeAlias alias="userVO" type="com.kr.swjch.admin.hangsa.vo.userVO"/>
 	</typeAliases>
 </configuration>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kr.swjch.admin.hangsa.mapper.userMapper">
+
+	<select id="getUserList" resultType="userVO">
+		select u.name AS name, 
+			u.famNum AS famNum, 
+			u.address AS address, 
+			u.year AS year, 
+			u.month AS month,
+			u.day AS day,
+			u.isMoon AS isMoon,
+			u.phone AS phone 
+		from USER u
+		order by month, year, day;
+	</select>
+	
+	<select id="getUserListByKeyword" resultType="userVO">
+		select u.name AS name, 
+			u.famNum AS famNum, 
+			u.address AS address, 
+			u.year AS year, 
+			u.month AS month,
+			u.day AS day,
+			u.isMoon AS isMoon,
+			u.phone AS phone 
+		from USER u
+		where u.name like CONCAT('%',#{keyword},'%')
+		order by month, year, day;
+	</select>
+
+</mapper>

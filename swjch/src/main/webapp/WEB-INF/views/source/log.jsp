@@ -23,7 +23,7 @@
 		$("#showLog").slideToggle();
 	}
 
-	function showLog() {
+	function showLogView() {
 		$("#showLogView").slideToggle();
 	}
 </script>
@@ -44,7 +44,7 @@
 				<div class="card #66bb6a green lighten-1">
 
 					<!-- Card header -->
-					<div class="card-header" onclick="javascript:showPlan();">
+					<div class="card-header" onclick="javascript:showLog();">
 						<!-- Section heading -->
 						<h2 class="h2-responsive font-weight-bold text-center my-1">
 							<font size='3' color='white'>로그요약</font>
@@ -90,7 +90,7 @@
 				<div class="card #66bb6a green lighten-1">
 
 					<!-- Card header -->
-					<div class="card-header" onclick="javascript:showPlan();">
+					<div class="card-header" onclick="javascript:showLogView();">
 						<!-- Section heading -->
 						<h2 class="h2-responsive font-weight-bold text-center my-1">
 							<font size='3' color='white'>로그</font>
@@ -106,7 +106,7 @@
 								<div id="searchResult" class="card border-success" style="max-width: 100%; display: block;">
 									<div class="card-body">
 										<c:forEach items="${logList}" var="log" varStatus="status">			
-											[ ${log.regdate}] ${log.url} [${log.ip}]<br>
+											[ ${log.regdate}] ${log.url}<br>
 											</font>
 										</c:forEach>
 
