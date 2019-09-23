@@ -8,13 +8,13 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,13 +24,15 @@ import com.ibm.icu.util.GregorianCalendar;
 import com.kr.swjch.admin.hangsa.service.userService;
 import com.kr.swjch.admin.hangsa.vo.userVO;
 import com.kr.swjch.common.log.service.logService;
-import com.kr.swjch.source.home.vo.adminVO;
+import com.kr.swjch.source.news.service.newsService;
 
 @Controller
 public class userController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(userController.class);
 	
+	@Inject
+	private newsService newsService;
 	@Inject
 	private userService userService;
 	@Inject
@@ -39,9 +41,26 @@ public class userController {
 	@RequestMapping(value = "/userList.do")
 	public String userList(HttpServletRequest request, Locale locale, Model model) throws Exception {
 		
-		logService.saveLog(request.getRemoteAddr(), request.getRequestedSessionId(), "주소록");
-
-		return "admin/userList";
+		HttpSession httpSession = request.getSession(true);
+		String isAdmin = (String)httpSession.getAttribute("isAdmin");
+		logService.saveLog(request.getRemoteAddr(), request.getRequestedSessionId(), "주소록:"+isAdmin);
+		
+		String view = "";
+		
+		if("y".equals(isAdmin)){
+			view = "admin/userList";
+		}else{
+			model.addAttribute("sermonList", newsService.getMoimNewsByGubun("sermon"));
+			model.addAttribute("localList", newsService.getMoimNewsByGubun("local-mission"));
+			model.addAttribute("eduList", newsService.getMoimNewsByGubun("edu-training"));
+			model.addAttribute("joyList", newsService.getMoimNewsByGubun("joy-sad"));
+			
+			model.addAttribute("totalVisitor", logService.getTotalVisitor());
+			model.addAttribute("todayVisitor", logService.getTodayVisitor());
+			view = "source/index2";
+		}
+		
+		return view;
 	}
 	
 	@ResponseBody
@@ -50,7 +69,6 @@ public class userController {
 			@RequestParam(value = "keyword", defaultValue = "0") String keyword) throws Exception {
 		
 		logService.saveLog(request.getRemoteAddr(), request.getRequestedSessionId(), "사용자검색 "+keyword);
-		
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		List<userVO> userList = new ArrayList<userVO>();
@@ -72,6 +90,34 @@ public class userController {
 		return map;
 	}
 	
+	
+	@ResponseBody
+	@RequestMapping(value = "/getFamilyById.json")
+	public Map<String, Object> getFamilyById(HttpServletRequest request, Model model, 
+			@RequestParam(value = "id", defaultValue = "0") String id) throws Exception {
+		
+		logService.saveLog(request.getRemoteAddr(), request.getRequestedSessionId(), "사용자상세검색 "+id);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		List<userVO> userList = new ArrayList<userVO>();
+		userList = userService.getFamilyById(id);
+		
+		for (userVO u : userList) {
+			if (u.getIsMoon()) {
+				Calendar calendar = new GregorianCalendar(Locale.KOREA);
+				int nYear = calendar.get(Calendar.YEAR);
+				String date = nYear + "" + u.getMonth() + "" + u.getDay();
+				String lunarDate = fromLunar(date);
+				
+				u.setMonth_moon(lunarDate.substring(4, 6));
+				u.setDay_moon(lunarDate.substring(6));
+			}
+		}
+		
+		map.put("familyList", userList);
+		return map;
+	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/getUserListbyMonth.json")

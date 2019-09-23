@@ -64,32 +64,28 @@
 </head>
 
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
+	$(document).ready(function() {
 
-						var Now = new Date();
-						var year = new Date().getFullYear();
+		var Now = new Date();
+		var year = new Date().getFullYear();
 
-						getPlanByYear(year);
+		getPlanByYear(year);
 
-						var loading = $(
-								'<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="${pageContext.request.contextPath}/resources/img/swj/viewLoading.gif" />')
-								.appendTo(document.body).hide();
-						$(window).ajaxStart(function() {
-							loading.show();
-						}).ajaxStop(function() {
-							loading.hide();
-						});
+		var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="${pageContext.request.contextPath}/resources/img/swj/viewLoading.gif" />').appendTo(document.body).hide();
+		$(window).ajaxStart(function() {
+			loading.show();
+		}).ajaxStop(function() {
+			loading.hide();
+		});
 
-						setYear();
-						
-						$("#selectYear").change(function() {
-							getPlanByYear($("#selectYear option:selected").val());
+		setYear();
 
-						});
+		$("#selectYear").change(function() {
+			getPlanByYear($("#selectYear option:selected").val());
 
-					});
+		});
+
+	});
 
 	// select box 연도 표시
 	function setYear() {
@@ -97,13 +93,13 @@
 		var now_year = dt.getFullYear();
 		for (var y = now_year; y >= (now_year - 1); y--) {
 			if (y == now_year) {
-				$("#selectYear").append('<option value='+ y +' selected>' + y + '</option>');
+				$("#selectYear").append('<option value='+ y +' selected>' + y + '년</option>');
 			} else {
-				$("#selectYear").append('<option value='+ y +' >' + y + '</option>');
+				$("#selectYear").append('<option value='+ y +' >' + y + '년</option>');
 			}
 		}
 	}
-	
+
 	function showPlan() {
 		$("#showPlan").slideToggle();
 	}
@@ -112,97 +108,42 @@
 
 		$("#planTitle").empty();
 
-		$
-				.ajax({
-					type : "POST",
-					url : "${pageContext.request.contextPath}/getPlanByYear.json",
-					dataType : "json",
-					data : {
-						"year" : year,
-					},
-					success : function(data) {
-						$("#planContents").empty();
+		$.ajax({
+			type : "POST",
+			url : "${pageContext.request.contextPath}/getPlanByYear.json",
+			dataType : "json",
+			data : {
+				"year" : year,
+			},
+			success : function(data) {
+				$("#planContents").empty();
 
-						var planList = data["planInfo"];
+				var planList = data["planInfo"];
 
-						for (var i = 0; i < planList.length; i++) {
-							$("#planTitle")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm"><font size="2" color="black">'
-													+ planList[i].title
-													+ '</font></button>');
-						}
+				for (var i = 0; i < planList.length; i++) {
+					$("#planTitle").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm"><font size="2" color="black">' + planList[i].title + '</font></button>');
+				}
 
-						for (var i = 0; i < planList.length; i++) {
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">1월 :: January</font><br><br><font size="2" color="black">'
-													+ planList[i].month_1
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">2월 :: Feburary</font><br><br><font size="2" color="black">'
-													+ planList[i].month_2
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">3월 :: March</font><br><br><font size="2" color="black">'
-													+ planList[i].month_3
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">4월 :: April</font><br><br><font size="2" color="black">'
-													+ planList[i].month_4
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">5월 :: May</font><br><br><font size="2" color="black">'
-													+ planList[i].month_5
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">6월 :: June</font><br><br><font size="2" color="black">'
-													+ planList[i].month_6
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">7월 :: July</font><br><br><font size="2" color="black">'
-													+ planList[i].month_7
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">8월 :: August</font><br><br><font size="2" color="black">'
-													+ planList[i].month_8
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">9월 :: September</font><br><br><font size="2" color="black">'
-													+ planList[i].month_9
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">10월 :: October</font><br><br><font size="2" color="black">'
-													+ planList[i].month_10
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">11월 : November</font><br><br><font size="2" color="black">'
-													+ planList[i].month_11
-													+ '</font></button><br>');
-							$("#planContents")
-									.append(
-											'<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">12월 : December</font><br><br><font size="2" color="black">'
-													+ planList[i].month_11
-													+ '</font></button><br>');
-						}
+				for (var i = 0; i < planList.length; i++) {
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">1월 :: January</font><br><br><font size="2" color="black">' + planList[i].month_1 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">2월 :: Feburary</font><br><br><font size="2" color="black">' + planList[i].month_2 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">3월 :: March</font><br><br><font size="2" color="black">' + planList[i].month_3 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">4월 :: April</font><br><br><font size="2" color="black">' + planList[i].month_4 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">5월 :: May</font><br><br><font size="2" color="black">' + planList[i].month_5 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">6월 :: June</font><br><br><font size="2" color="black">' + planList[i].month_6 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">7월 :: July</font><br><br><font size="2" color="black">' + planList[i].month_7 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">8월 :: August</font><br><br><font size="2" color="black">' + planList[i].month_8 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">9월 :: September</font><br><br><font size="2" color="black">' + planList[i].month_9 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">10월 :: October</font><br><br><font size="2" color="black">' + planList[i].month_10 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">11월 : November</font><br><br><font size="2" color="black">' + planList[i].month_11 + '</font></button><br>');
+					$("#planContents").append('<button type="button" class="btn btn-outline-default waves-effect btn-sm" style="text-align:left;width:100%;"><font size="4" color="black">12월 : December</font><br><br><font size="2" color="black">' + planList[i].month_11 + '</font></button><br>');
+				}
 
-					},
-					error : function(request, status, error) {
-						alert("code:" + request.status + "\n" + "message:"
-								+ request.responseText + "\n" + "error:"
-								+ error);
-					}
-				});
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+		});
 
 	}
 </script>
@@ -238,13 +179,9 @@
 								<select id="selectYear" class="browser-default custom-select" style="width: 100px; font-size: 15px; float: right;">
 								</select>
 								<br> <br>
-								<div id="searchResult" class="card border-success" style="max-width: 100%; display: block;">
-									<div class="card-body">
-										<div id="planTitle"></div>
-										<div class="card-text">
-											<div id="planContents"></div>
-										</div>
-									</div>
+								<div id="planTitle"></div>
+								<div class="card-text">
+									<div id="planContents"></div>
 								</div>
 
 							</div>

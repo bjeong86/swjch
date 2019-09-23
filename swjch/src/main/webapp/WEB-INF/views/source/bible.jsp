@@ -217,19 +217,19 @@
 		Kakao.Link.sendDefault({
 			objectType : 'feed',
 			content : {
-				title : '[' + ${dayCount} + '일차] ' + NowTime,
+				title : '[' + $("#nowDay").val() + '일차] ' + NowTime,
 				description : $("#kakaoMsg").val(),
 				imageUrl : 'http://swjch.org/resources/img/swj/bible.jpg',
 				link : {
-					mobileWebUrl : 'http://swjch.org/bible.do?day='+${dayCount},
-					webUrl : 'http://swjch.org/bible.do?day='+${dayCount},
+					mobileWebUrl : 'http://swjch.org/bible.do?day='+$("#nowDay").val(),
+					webUrl : 'http://swjch.org/bible.do?day='+$("#nowDay").val(),
 				}
 			},
 			buttons : [ {
 				title : '오늘 연대기 말씀 보기',
 				link : {
-					mobileWebUrl : 'http://swjch.org/bible.do?day='+${dayCount},
-					webUrl : 'http://swjch.org/bible.do?day='+${dayCount},
+					mobileWebUrl : 'http://swjch.org/bible.do?day='+$("#nowDay").val(),
+					webUrl : 'http://swjch.org/bible.do?day='+$("#nowDay").val(),
 				}
 			} ]
 		});

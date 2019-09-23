@@ -25,6 +25,11 @@ public class userServiceImpl implements userService {
 		return dao.getUserListByKeyword(keyword);
 	}
 
+	@Override
+	public List<userVO> getFamilyById(String id) throws Exception {
+		return dao.getFamilyById(id);
+	}
+
 
 
 }

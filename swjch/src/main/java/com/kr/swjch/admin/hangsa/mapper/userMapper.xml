@@ -6,7 +6,8 @@
 <mapper namespace="com.kr.swjch.admin.hangsa.mapper.userMapper">
 
 	<select id="getUserList" resultType="userVO">
-		select u.name AS name, 
+		select u.id AS id,
+		    u.name AS name, 
 			u.famNum AS famNum, 
 			u.address AS address, 
 			u.year AS year, 
@@ -15,11 +16,12 @@
 			u.isMoon AS isMoon,
 			u.phone AS phone 
 		from USER u
-		order by month, year, day;
+		order by year, month, day;
 	</select>
 	
 	<select id="getUserListByKeyword" resultType="userVO">
-		select u.name AS name, 
+		select u.id AS id,
+		    u.name AS name, 
 			u.famNum AS famNum, 
 			u.address AS address, 
 			u.year AS year, 
@@ -29,7 +31,22 @@
 			u.phone AS phone 
 		from USER u
 		where u.name like CONCAT('%',#{keyword},'%')
-		order by month, year, day;
+		order by year, month, day;
+	</select>
+	
+	<select id="getFamilyById" resultType="userVO">
+		select u.id AS id,
+		    u.name AS name, 
+			u.famNum AS famNum, 
+			u.address AS address, 
+			u.year AS year, 
+			u.month AS month,
+			u.day AS day,
+			u.isMoon AS isMoon,
+			u.phone AS phone 
+		from USER u
+		where u.famNum = (select u2.famNum from USER u2 where u2.id = #{id})
+		order by year, month, day;
 	</select>
 
 </mapper>

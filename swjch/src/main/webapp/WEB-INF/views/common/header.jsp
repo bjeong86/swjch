@@ -23,13 +23,10 @@
 				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/plan.do">
 						<font size='2' color='black'><strong>연간계획</strong></font>
 					</a></li>
+				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/userList.do">
+						<font size='2' color='black'><strong>주소록</strong></font>
+					</a></li>
 				<c:if test="${sessionScope.isAdmin eq 'y'}">
-					<li class="nav-item"><a class="nav-link h3 my-1" href="#">
-							<font size='2' color='black'><strong>학생부</strong></font>
-						</a></li>
-					<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/userList.do">
-							<font size='2' color='black'><strong>주소록</strong></font>
-						</a></li>
 					<li class="nav-item"><a class="nav-link h3 my-1" href="#">
 							<font size='2' color='black'><strong>NAS</strong></font>
 						</a></li>
@@ -102,6 +99,5 @@
 		</div>
 	</div>
 	<!--Modal: Login / Register Form-->
-
 </header>
 <!--Main Navigation-->

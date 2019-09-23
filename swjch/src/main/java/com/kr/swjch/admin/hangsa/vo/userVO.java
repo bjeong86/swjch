@@ -2,6 +2,7 @@ package com.kr.swjch.admin.hangsa.vo;
 
 public class userVO {
 
+	String id;
 	String name;
 	String famNum;
 	String address;
@@ -15,6 +16,12 @@ public class userVO {
 	
 	String keyword;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

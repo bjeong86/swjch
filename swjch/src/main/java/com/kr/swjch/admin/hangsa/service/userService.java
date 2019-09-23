@@ -8,4 +8,7 @@ public interface userService {
 	public List<userVO> getUserList() throws Exception;
 	
 	public List<userVO> getUserListByKeyword(String keyword) throws Exception;
+
+	public List<userVO> getFamilyById(String id) throws Exception;
+
 }

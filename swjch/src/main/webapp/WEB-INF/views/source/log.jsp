@@ -44,7 +44,7 @@
 				<div class="card #66bb6a green lighten-1">
 
 					<!-- Card header -->
-					<div class="card-header" onclick="javascript:showLog();">
+					<div class="card-header" onclick="javascript:showLogView();">
 						<!-- Section heading -->
 						<h2 class="h2-responsive font-weight-bold text-center my-1">
 							<font size='3' color='white'>로그요약</font>
@@ -90,7 +90,7 @@
 				<div class="card #66bb6a green lighten-1">
 
 					<!-- Card header -->
-					<div class="card-header" onclick="javascript:showLogView();">
+					<div class="card-header" onclick="javascript:showLog();">
 						<!-- Section heading -->
 						<h2 class="h2-responsive font-weight-bold text-center my-1">
 							<font size='3' color='white'>로그</font>

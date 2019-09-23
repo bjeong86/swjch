@@ -30,5 +30,12 @@ public class userDAO  {
 		
 		return sqlSession.selectList(Namespace + ".getUserListByKeyword", param);
 	}
+	
+	public List<userVO> getFamilyById(String id) throws Exception {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("id", id);
+		
+		return sqlSession.selectList(Namespace + ".getFamilyById", param);
+	}
 
 }
