@@ -91,7 +91,7 @@
 	function setYear() {
 		var dt = new Date();
 		var now_year = dt.getFullYear();
-		for (var y = now_year; y >= (now_year - 1); y--) {
+		for (var y = now_year; y >= (now_year - 3); y--) {
 			if (y == now_year) {
 				$("#selectYear").append('<option value='+ y +' selected>' + y + '년</option>');
 			} else {
@@ -160,13 +160,13 @@
 			<div class="col-md-12 mb-1">
 
 				<!--Card-->
-				<div class="card #66bb6a green lighten-1">
+				<div class="card #cfd8dc blue-grey lighten-4">
 
 					<!-- Card header -->
 					<div class="card-header" onclick="javascript:showPlan();">
 						<!-- Section heading -->
 						<h2 class="h2-responsive font-weight-bold text-center my-1">
-							<font size='3' color='white'>연간계획</font>
+							<font size='3' color='black'><b>연간계획</b></font>
 						</h2>
 						<!-- Section description -->
 					</div>

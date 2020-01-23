@@ -1,10 +1,15 @@
 package com.kr.swjch.source.bible.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.kr.swjch.source.bible.dao.bibleDAO;
 import com.kr.swjch.source.bible.vo.bibleContentsVO;

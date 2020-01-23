@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kr.swjch.source.bible.mapper.bibleMapper">
+
+	<select id="getBibleContentsByDay" resultType="bibleContentsVO">
+		select
+			t.title_name as title,
+			k.chapter as chapter,
+			k.verse as verse,
+			k.content as contents,
+			s.sChapter,
+			s.eChapter,
+			s.day
+		from BIBLE_KORHRV k, BIBLE_SCHEDULE s, BIBLE_TITLE t
+		where k.book = t.title_num
+			and k.book = s.book
+			and k.chapter >= s.sChapter
+			and s.eChapter >= k.chapter
+			and s.day in (#{day});
+	</select>
+	
+	<select id="getBibleScheduleByDay" resultType="bibleScheduleVO">
+		select s.day AS day, 
+			t.title_name AS title, 
+			s.sChapter AS sChapter, 
+			s.eChapter AS eChapter, 
+			s.hits AS hits 
+		from BIBLE_SCHEDULE s, BIBLE_TITLE t 
+			where s.book = t.title_num
+			and s.day in (#{day});
+	</select>
+	
+	<select id="getBibleContentsAll" resultType="bibleContentsVO">
+		select
+			t.title_name as title,
+			k.chapter as chapter,
+			k.verse as verse,
+			k.content as contents,
+			s.sChapter,
+			s.eChapter,
+			s.day
+		from BIBLE_KORHRV k, BIBLE_SCHEDULE s, BIBLE_TITLE t
+		where k.book = t.title_num
+			and k.book = s.book
+			and k.chapter >= s.sChapter
+			and s.eChapter >= k.chapter;
+	</select>
+	
+	<select id="getBibleScheduleAll" resultType="bibleScheduleVO">
+		select s.day AS day, 
+			t.title_name AS title, 
+			s.sChapter AS sChapter, 
+			s.eChapter AS eChapter, 
+			s.hits AS hits 
+		from BIBLE_SCHEDULE s, BIBLE_TITLE t 
+			where s.book = t.title_num;
+	</select>
+
+</mapper>

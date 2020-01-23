@@ -84,8 +84,32 @@
 		});
 
 	});
+	
+	function readBible(){
+		
+		$.ajax({
+			type : "POST",
+			url : "/getKakaoTTS.json",
+			dataType : "json",
+			data : {
+				"day" : $("#nowDay").val(),
+			},
+			success : function(data) {
+				alert(data);
 
-	function showSearchBible() {
+			},
+			error : function(request, status, error) {
+				
+				alert(error);
+				
+			}
+		});
+
+	}
+	
+
+	
+	function showSearchBible() {s
 		$("#searchBible").slideToggle();
 	}
 
@@ -128,7 +152,22 @@
 		getBibleByDay($("#selectDay option:selected").val());
 	}
 	
-	
+	function setAudio(day){
+		
+		$("#audio").empty();
+		
+		$("#audio").append("<font size='4' color='white'>연대기말씀("+day+"일차) 음성으로 듣기</font><br>");
+		$("#audio").append("<br>");
+		
+		if(day == 10 || day == 9){
+			$("#audio").append('<audio src="${pageContext.request.contextPath}/resources/mp3/day_'+day+'_1.mp3" style="width: 97%" controls></audio><br><br>');
+			$("#audio").append('<audio src="${pageContext.request.contextPath}/resources/mp3/day_'+day+'_2.mp3" style="width: 97%" controls></audio><br>');
+		}else{
+			$("#audio").append('<audio src="${pageContext.request.contextPath}/resources/mp3/day_'+day+'.mp3" style="width: 97%" controls></audio><br><br>');
+		}
+		
+	}
+
 	function getBibleByDay(day) {
 		
 		$("#bibleTitle").empty();
@@ -142,6 +181,8 @@
 				"day" : day,
 			},
 			success : function(data) {
+				setAudio(day);
+				
 				$("#bibleContents").empty();
 
 				var bibleList = data["bibleContents"];
@@ -249,13 +290,13 @@
 			<div class="col-md-12 mb-1">
 
 				<!--Card-->
-				<div class="card #66bb6a green lighten-1">
+				<div class="card #cfd8dc blue-grey lighten-4">
 
 					<!-- Card header -->
 					<div class="card-header" onclick="javascript:showSearchBible();">
 						<!-- Section heading -->
 						<h2 class="h2-responsive font-weight-bold text-center my-1">
-							<font size='3' color='white'>연대기성경</font>
+							<font size='3' color='black'><b>연대기성경</b></font>
 						</h2>
 						<!-- Section description -->
 					</div>
@@ -273,23 +314,29 @@
 								</select>
 								<br> <br>
 								<div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%">
-									<button type="button" class="btn btn-sm success-color-dark #007E33" style="width: 30%" onclick="javascript:getBibleBf();">
-										<font size='1' color='white'><<</font>
+									<button type="button" class="btn btn-sm #fafafa grey lighten-5" style="width: 30%" onclick="javascript:getBibleBf();">
+										<font size='3' color='black'><b><<</b></font>
 									</button>
-									<button type="button" class="btn btn-sm success-color-dark #007E33" style="width: 60%" onclick="javascript:getBibleToday();">
+									<button type="button" class="btn btn-sm #fafafa grey lighten-5" style="width: 60%" onclick="javascript:getBibleToday();">
 										<c:if test="${isToday eq true }">
-											<font size='2' color='white'>오늘말씀보기( ${dayCount }일차 )</font>
+											<font size='2' color='black'><b>오늘말씀보기( ${dayCount }일차 )</b></font>
 										</c:if>
 										<c:if test="${isToday eq false }">
-											<font size='2' color='white'> ${dayCount }일차 말씀보기</font>
+											<font size='2' color='black'><b> ${dayCount }일차 말씀보기</b></font>
 										</c:if>
 									</button>
-									<button type="button" class="btn btn-sm success-color-dark #007E33" style="width: 30%" onclick="javascript:getBibleAf();">
-										<font size='1' color='white'>>></font>
+									<button type="button" class="btn btn-sm #fafafa grey lighten-5" style="width: 30%" onclick="javascript:getBibleAf();">
+										<font size='3' color='black'><b>>></b></font>
 									</button>
 								</div>
-								<br>
-								<div id="searchResult" class="card border-success" style="max-width: 100%; display: block;">
+								<br> <br>
+								<div id="searchResult" class="card " style="max-width: 100%; display: block;">
+									<button type="button" class="btn btn-sm btn-unique" style="width: 98%">
+
+										<div id="audio"></div>
+
+										<br>
+									</button>
 									<div class="card-body">
 										<div id="bibleTitle"></div>
 										<div class="card-text">
@@ -297,7 +344,10 @@
 										</div>
 										<input type="hidden" id="kakaoMsg" value="" />
 									</div>
-									<button type="button" class="btn btn-sm btn-unique" style="width: 97%" onclick="javascript:sendLink();">
+									<!-- 
+									<a href="#" onclick="javascript:readBible();">...</a>
+									 -->
+									<button type="button" class="btn btn-sm btn-unique" style="width: 98%" onclick="javascript:sendLink();">
 										<font size='2' color='white'>KAKAOTalk 공유</font>
 									</button>
 								</div>

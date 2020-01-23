@@ -22,7 +22,7 @@
 				contents,
 				contents_hashcode AS contentsHashcode,
 				url,
-				regdate
+				substr(regdate,6) AS regdate
 			FROM MOIM_NEWS a ,(SELECT @RNUM := 0) b
 			WHERE a.gubun = #{gubun}
 			ORDER BY create_date DESC
@@ -39,7 +39,7 @@
 				contents,
 				contents_hashcode AS contentsHashcode,
 				url,
-				regdate
+				substr(regdate,6) AS regdate
 			FROM MOIM_NEWS a
 			WHERE a.id = #{id};
 		]]>

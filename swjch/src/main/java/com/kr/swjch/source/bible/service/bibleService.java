@@ -11,4 +11,5 @@ public interface bibleService {
 	
 	public List<bibleContentsVO> getBibleContentsAll() throws Exception;
 	public List<bibleScheduleVO> getBibleScheduleAll() throws Exception;
+	
 }

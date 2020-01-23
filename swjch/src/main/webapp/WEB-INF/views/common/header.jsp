@@ -20,14 +20,20 @@
 				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/bible.do">
 						<font size='2' color='black'><strong>연대기성경</strong></font>
 					</a></li>
+				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/sentence.do">
+						<font size='2' color='black'><strong>말씀암송</strong></font>
+					</a></li>
 				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/plan.do">
 						<font size='2' color='black'><strong>연간계획</strong></font>
 					</a></li>
 				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/userList.do">
 						<font size='2' color='black'><strong>주소록</strong></font>
 					</a></li>
+				<li class="nav-item"><a class="nav-link h3 my-1" href="http://115.68.216.149:9000/admin/%EC%88%98%EC%9B%90%EC%A4%91%EB%B6%80%EA%B5%90%ED%9A%8C_%ED%95%99%EC%83%9D%EB%B6%80/posts">
+						<font size='2' color='black'><strong>학생부</strong></font>
+					</a></li>
 				<c:if test="${sessionScope.isAdmin eq 'y'}">
-					<li class="nav-item"><a class="nav-link h3 my-1" href="#">
+					<li class="nav-item"><a class="nav-link h3 my-1" href="http://211.184.109.204:50750/">
 							<font size='2' color='black'><strong>NAS</strong></font>
 						</a></li>
 					<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/log.do">

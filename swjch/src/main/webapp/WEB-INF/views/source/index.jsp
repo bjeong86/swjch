@@ -52,6 +52,14 @@
 		$("#breth").slideToggle();
 	}
 	
+	function showSentence() {
+		$("#sentence").slideToggle();
+	}	
+	
+	function showGallery() {
+		$("#gallery").slideToggle();
+	}	
+	
 	function showNews() {
 		$("#news").slideToggle();
 	}
@@ -84,7 +92,7 @@
 				
 				$("#newsTitle").append(str.replace('New',''));
 				$("#newsContents").append('<font size="3" color="black"><b>'+data["news"].contents+'</font>');
-				$("#newsLink").append('<a class="btn success-color-dark #007E33 btn-sm active" href="'+data["news"].url+'" target="_blank"><font color="white">더 자세한 내용 보기</font></a>');
+				$("#newsLink").append('<a class="btn #eceff1 blue-grey lighten-5 btn-sm active" href="'+data["news"].url+'" target="_blank"><font color="black"><b>더 자세한 내용 보기</b></font></a>');
 				
 				$("#centralModalLGInfoNews").modal();
 				
@@ -185,14 +193,14 @@
 		<div class="row wow fadeIn">
 
 			<!--Grid column-->
-			<div class="col-md-8">
+			<div class="col-md-9">
 
 				<!-- Jumbotron -->
-				<div class="jumbotron p-0 #fafafa grey lighten-5">
+				<div class="card mb-2">
 
 					<!-- Card image -->
 					<div class="view overlay rounded-top f9fbe7 lime lighten-5">
-						<img src="${pageContext.request.contextPath}/resources/img/swj/main.jpeg" class="img-fluid" alt="Sample image">
+						<img src="${pageContext.request.contextPath}/resources/img/swj/main2.jpg" class="img-fluid" alt="Sample image">
 						<a href="#">
 							<div class="mask rgba-white-slight"></div>
 						</a>
@@ -203,11 +211,11 @@
 
 						<!-- Title -->
 						<h3 class="card-title h3 indigo-text">
-							<strong><font size='4' color='black'>그리스도를 닮아 가는 교회</font></strong>
+							<strong><font size='3' color='black'>그리스도를 닮아 가는 교회</font></strong>
 						</h3>
 						<!-- Text -->
 						<p class="card-text py-1 font-weight-bold">
-							<font size='1'>하나님이 미리 아신 자들을 또한 그 아들의 형상을 본받게 하기 위하여 미리<br> 정하셨으니 이는 그로 많은 형제 중에서 맏아들이 되게 하려 하심이니라.<br> 로마서 8장 29절
+							<font size='1'>하나님이 미리 아신 자들을 또한 그 아들의 형상을 본받게 하기 위하여 미리 정하셨으니 이는 그로 많은 형제 중에서 맏아들이 되게 하려 하심이니라.<br><br> 로마서 8장 29절
 							</font>
 						</p>
 					</div>
@@ -215,11 +223,31 @@
 				</div>
 				<!-- Jumbotron -->
 
+				<!-- Jumbotron -->
+				<div class="card mb-2 #fafafa grey lighten-5">
+					<div class="card-header" onclick="javascript:showSentence();">
+						<!-- Section heading -->
+						<h2 class="h2-responsive font-weight-bold text-center my-1">
+							<font size='2' color='black'><b>금주암송말씀</b></font>
+						</h2>
+					</div>
+
+					<!-- Card content -->
+					<div class="card-body text-center " id="sentence">
+						<!-- Text -->
+						<p class="card-text py-1 font-weight-bold">
+							<font size='2'>하나님이 미리 아신 자들을 또한 그 아들의 형상을 본받게 하기 위하여 미리<br> 정하셨으니 이는 그로 많은 형제 중에서 맏아들이 되게 하려 하심이니라.<br> 로마서 8장 29절
+							</font>
+						</p>
+					</div>
+
+				</div>
+
 			</div>
 			<!--Grid column-->
 
 			<!--Grid column-->
-			<div class="col-md-4 mb-1 ">
+			<div class="col-md-3 mb-1 ">
 
 				<!--Card-->
 				<div class="card mb-2 #fafafa grey lighten-5">
@@ -229,14 +257,14 @@
 
 						<!-- List group links -->
 						<div class="list-group list-group-flush">
-							<button class="list-group-item list-group-item-action waves-effect btn btn-unique btn-sm #66bb6a green lighten-1" data-toggle="modal" data-target="#centralModalLGInfoIntro">
-								<font size='2'>수원중부교회 소개</font>
+							<button class="list-group-item list-group-item-action waves-effect btn btn-unique btn-sm #eceff1 blue-grey lighten-5" data-toggle="modal" data-target="#centralModalLGInfoIntro">
+								<font size='2' color='black'>수원중부교회 소개</font>
 							</button>
-							<button class="list-group-item list-group-item-action waves-effect btn btn-unique btn-sm #66bb6a green lighten-1" data-toggle="modal" data-target="#centralModalLGInfoBreth">
-								<font size='2'>형제운동이란?</font>
+							<button class="list-group-item list-group-item-action waves-effect btn btn-unique btn-sm #eceff1 blue-grey lighten-5" data-toggle="modal" data-target="#centralModalLGInfoBreth">
+								<font size='2' color='black'>형제운동이란?</font>
 							</button>
-							<button class="list-group-item list-group-item-action waves-effect btn btn-unique btn-sm #66bb6a green lighten-1" data-toggle="modal" data-target="#centralModalFluidSuccessSchedule">
-								<font size='2'>집회일정</font>
+							<button class="list-group-item list-group-item-action waves-effect btn btn-unique btn-sm #eceff1 blue-grey lighten-5" data-toggle="modal" data-target="#centralModalFluidSuccessSchedule">
+								<font size='2' color='black'>집회일정</font>
 							</button>
 						</div>
 						<!-- List group links -->
@@ -338,20 +366,20 @@
 									<!--Body-->
 									<div class="modal-body #fafafa grey lighten-5">
 										<ul class="nav nav-pills" id="pills-tab" role="tablist">
-											<li class="nav-item"><a class="btn success-color-dark #007E33 btn-sm active" id="pills-sun-tab" data-toggle="pill" href="#pills-sun" role="tab" aria-controls="pills-sun" aria-selected="true">
-													<font color='white'>일</font>
+											<li class="nav-item"><a class="btn #eceff1 blue-grey lighten-5 btn-sm active" id="pills-sun-tab" data-toggle="pill" href="#pills-sun" role="tab" aria-controls="pills-sun" aria-selected="true">
+													<font color='black'><b>일</b></font>
 												</a></li>
-											<li class="nav-item"><a class="btn success-color-dark #007E33 btn-sm" id="pills-tues-tab" data-toggle="pill" href="#pills-tues" role="tab" aria-controls="pills-tues" aria-selected="false">
-													<font color='white'>화</font>
+											<li class="nav-item"><a class="btn #eceff1 blue-grey lighten-5 btn-sm" id="pills-tues-tab" data-toggle="pill" href="#pills-tues" role="tab" aria-controls="pills-tues" aria-selected="false">
+													<font color='black'><b>화</b></font>
 												</a></li>
-											<li class="nav-item"><a class="btn success-color-dark #007E33 btn-sm" id="pills-wed-tab" data-toggle="pill" href="#pills-wed" role="tab" aria-controls="pills-wed" aria-selected="false">
-													<font color='white'>수</font>
+											<li class="nav-item"><a class="btn #eceff1 blue-grey lighten-5 btn-sm" id="pills-wed-tab" data-toggle="pill" href="#pills-wed" role="tab" aria-controls="pills-wed" aria-selected="false">
+													<font color='black'><b>수</b></font>
 												</a></li>
-											<li class="nav-item"><a class="btn success-color-dark #007E33 btn-sm" id="pills-fri-tab" data-toggle="pill" href="#pills-fri" role="tab" aria-controls="pills-fri" aria-selected="false">
-													<font color='white'>금</font>
+											<li class="nav-item"><a class="btn #eceff1 blue-grey lighten-5 btn-sm" id="pills-fri-tab" data-toggle="pill" href="#pills-fri" role="tab" aria-controls="pills-fri" aria-selected="false">
+													<font color='black'><b>금</b></font>
 												</a></li>
-											<li class="nav-item"><a class="btn success-color-dark #007E33 btn-sm" id="pills-sat-tab" data-toggle="pill" href="#pills-sat" role="tab" aria-controls="pills-sat" aria-selected="false">
-													<font color='white'>토</font>
+											<li class="nav-item"><a class="btn #eceff1 blue-grey lighten-5 btn-sm" id="pills-sat-tab" data-toggle="pill" href="#pills-sat" role="tab" aria-controls="pills-sat" aria-selected="false">
+													<font color='black'><b>토</b></font>
 												</a></li>
 										</ul>
 										<div class="tab-content" id="pills-tabContent">
@@ -409,24 +437,24 @@
 															<td><b>자매회</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 													</tbody>
 												</table>
@@ -452,19 +480,19 @@
 															<td><b>기도집회</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 													</tbody>
 												</table>
@@ -486,24 +514,24 @@
 															</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 													</tbody>
 												</table>
@@ -529,19 +557,19 @@
 															<td><b>일꾼회의</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 														<tr>
-															<td><b></b></td>
-															<td><b></b></td>
-															<td><b></b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
+															<td><b>&nbsp;</b></td>
 														</tr>
 													</tbody>
 												</table>
@@ -567,12 +595,12 @@
 
 						<!-- List group links -->
 						<div class="list-group list-group-flush">
-							<button class="list-group-item list-group-item-action waves-effect btn btn-sm success-color-dark #007E33" type="button" aria-haspopup="true" aria-expanded="false">
-								<font size='2' color='white'>Site Links</font>
+							<button class="list-group-item list-group-item-action waves-effect btn btn-sm #eceff1 blue-grey lighten-5" type="button" aria-haspopup="true" aria-expanded="false">
+								<font size='2' color='black'><b>Site Links</b></font>
 							</button>
 							<div class="dropdown">
-								<button class="list-group-item list-group-item-action waves-effect btn success-color-dark #007E33 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<font size='2' color='white'>단체</font>
+								<button class="list-group-item list-group-item-action waves-effect btn #eceff1 blue-grey lighten-5 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<font size='2' color='black'>단체</font>
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenu5">
 									<a class="dropdown-item indigo-text" href="http://www.cti.or.kr/" target="_blank">
@@ -599,8 +627,8 @@
 								</div>
 							</div>
 							<div class="dropdown">
-								<button class="list-group-item list-group-item-action waves-effect btn success-color-dark #007E33 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<font size='2' color='white'>출판사</font>
+								<button class="list-group-item list-group-item-action waves-effect btn #eceff1 blue-grey lighten-5 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<font size='2' color='black'>출판사</font>
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenu5">
 									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/millstone4i" target="_blank">
@@ -618,8 +646,8 @@
 								</div>
 							</div>
 							<div class="dropdown">
-								<button class="list-group-item list-group-item-action waves-effect btn success-color-dark #007E33 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<font size='2' color='white'>캠프기관</font>
+								<button class="list-group-item list-group-item-action waves-effect btn #eceff1 blue-grey lighten-5 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<font size='2' color='black'>캠프기관</font>
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenu5">
 									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/goldcamp" target="_blank">
@@ -658,10 +686,40 @@
 								</div>
 							</div>
 							<div class="dropdown">
-								<button class="list-group-item list-group-item-action waves-effect btn success-color-dark #007E33 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<font size='2' color='white'>교회</font>
+								<button class="list-group-item list-group-item-action waves-effect btn #eceff1 blue-grey lighten-5 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<font size='2' color='black'>서울/경기/강원/인천</font>
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 서울 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.kangseochurch.org/" target="_blank">
+										<font size='2' color='black'>강서중부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.rodem.net/" target="_blank">
+										<font size='2' color='black'>구로교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://noryangjin.or.kr/home/" target="_blank">
+										<font size='2' color='black'>노량진교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.mapomoim.or.kr/" target="_blank">
+										<font size='2' color='black'>마포교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.schurch.or.kr/" target="_blank">
+										<font size='2' color='black'>서대문교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.sdic.kr" target="_blank">
+										<font size='2' color='black'>서울대학로교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://overcomer.or.kr/" target="_blank">
+										<font size='2' color='black'>서울북부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/SeoulseobuA" target="_blank">
+										<font size='2' color='black'>서울서부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.gojesus.co.kr/" target="_blank">
+										<font size='2' color='black'>영등포교회</font>
+									</a>
 									<a class="dropdown-item indigo-text" href="#">
 										<font size='2' color='black'>- - - 경기도 - - -</font>
 									</a>
@@ -698,8 +756,155 @@
 									<a class="dropdown-item indigo-text" href="http://joam.sujeong.kr/" target="_blank">
 										<font size='2' color='black'>조암수정교회</font>
 									</a>
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 강원도 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="https://cafe.naver.com/knassembly" target="_blank">
+										<font size='2' color='black'>강릉교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/sokchochurch" target="_blank">
+										<font size='2' color='black'>속초교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/yangyangassembly" target="_blank">
+										<font size='2' color='black'>양양교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/wonju-church" target="_blank">
+										<font size='2' color='black'>원주교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.lordcome.org/" target="_blank">
+										<font size='2' color='black'>춘천교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 인천 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://icsongdo.com/g5/" target="_blank">
+										<font size='2' color='black'>인천송도교회</font>
+									</a>
+
 								</div>
 							</div>
+
+							<div class="dropdown">
+								<button class="list-group-item list-group-item-action waves-effect btn #eceff1 blue-grey lighten-5 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<font size='2' color='black'>경상/광주/대전/충청</font>
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 경상도 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://geojemoim.com/" target="_blank">
+										<font size='2' color='black'>거제교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://4000church.kr/newsnet/index.php" target="_blank">
+										<font size='2' color='black'>사천교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.sghc.kr/" target="_blank">
+										<font size='2' color='black'>서김해교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/jinjudongbuu" target="_blank">
+										<font size='2' color='black'>진주동부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="https://cafe.naver.com/tymoim" target="_blank">
+										<font size='2' color='black'>통영교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.xn--939ajxj96aztx.com/" target="_blank">
+										<font size='2' color='black'>대구강북교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.dgnambu21.co.kr/" target="_blank">
+										<font size='2' color='black'>대구남부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://xn--hc0bses4ro6k7nokgt.com/" target="_blank">
+										<font size='2' color='black'>대구대명동교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://tmdong.com/" target="_blank">
+										<font size='2' color='black'>대구중부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.moimnet.org/" target="_blank">
+										<font size='2' color='black'>대구팔공로교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="https://happyss.modoo.at/" target="_blank">
+										<font size='2' color='black'>성서행복한교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.usjungbu.or.kr/" target="_blank">
+										<font size='2' color='black'>울산중부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 광주 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://xn--hc0bses4ro6k7nokgt.com/" target="_blank">
+										<font size='2' color='black'>광주동부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 대전 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.naedongchurch.kr/" target="_blank">
+										<font size='2' color='black'>대전내동교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://daedeok.org/" target="_blank">
+										<font size='2' color='black'>대전대덕교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 충청도 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.cjchristian.org/" target="_blank">
+										<font size='2' color='black'>서청주교회</font>
+									</a>
+
+								</div>
+							</div>
+
+							<div class="dropdown">
+								<button class="list-group-item list-group-item-action waves-effect btn #eceff1 blue-grey lighten-5 dropdown-toggle btn-sm" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<font size='2' color='black'>부산/전라/제주/해외</font>
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 부산 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.gudeok.busan.kr/" target="_blank">
+										<font size='2' color='black'>구덕교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.iark.org/" target="_blank">
+										<font size='2' color='black'>연제교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 전라도 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.gimjechurch.co.kr/" target="_blank">
+										<font size='2' color='black'>김제교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.namwonchurch.or.kr/" target="_blank">
+										<font size='2' color='black'>남원서문교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/god4i" target="_blank">
+										<font size='2' color='black'>정읍금붕교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.ongoeulch.or.kr/" target="_blank">
+										<font size='2' color='black'>온고을송천교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://www.kirinro.co.kr/" target="_blank">
+										<font size='2' color='black'>전주기린로교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 제주도 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://cafe.daum.net/hsbc9012" target="_blank">
+										<font size='2' color='black'>한림서부교회</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="#">
+										<font size='2' color='black'>- - - 해외 - - -</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="http://club.cyworld.com/burwood-glo" target="_blank">
+										<font size='2' color='black'>시드니 버우드교회(호주)</font>
+									</a>
+									<a class="dropdown-item indigo-text" href="https://www.washingtonmoim.com/" target="_blank">
+										<font size='2' color='black'>워싱턴교회(미국)</font>
+									</a>
+
+								</div>
+							</div>
+
 						</div>
 						<!-- List group links -->
 
@@ -729,7 +934,159 @@
 		</div>
 		<!--Grid column-->
 		<!--(1) Grid row-->
+		<!-- Central Modal Large Info-->
+		<div class="row wow fadeIn ">
 
+			<!--Grid column-->
+			<div class="col-md-12 mb-2 ">
+				<!--Card-->
+				<div class="card">
+					<div class="card-header" onclick="javascript:showGallery();">
+						<!-- Section heading -->
+						<h2 class="h2-responsive font-weight-bold text-center my-1">
+							<font size='2' color='black'><b>갤러리</b></font>
+						</h2>
+					</div>
+					<!--Card content-->
+					<div class="card-body" id="gallery">
+						<!-- Section: Testimonials v.2 -->
+						<section class="text-center">
+
+							<div class="wrapper-carousel-fix">
+								<!-- Carousel Wrapper -->
+								<div id="carousel-example-1" class="carousel no-flex testimonial-carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+									<!--Slides-->
+									<div class="carousel-inner" role="listbox">
+										<!--First slide-->
+										<div class="carousel-item active">
+											<div class="testimonial">
+												<!--Avatar-->
+												<div class="avatar mx-auto mb-1">
+													<!-- Grid row -->
+													<div class="row">
+														<!-- Grid column -->
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_1.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_2.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_3.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--First slide-->
+										<!--Second slide-->
+										<div class="carousel-item">
+											<div class="testimonial">
+												<!--Avatar-->
+												<div class="avatar mx-auto mb-1">
+													<!-- Grid row -->
+													<div class="row">
+														<!-- Grid column -->
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_4.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_5.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_6.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--Second slide-->
+										<!--Third slide-->
+										<div class="carousel-item">
+											<div class="testimonial">
+												<!--Avatar-->
+												<div class="avatar mx-auto mb-1">
+													<!-- Grid row -->
+													<div class="row">
+														<!-- Grid column -->
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_7.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_8.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_9.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--Third slide-->
+										<!--Second slide-->
+										<div class="carousel-item">
+											<div class="testimonial">
+												<!--Avatar-->
+												<div class="avatar mx-auto mb-1">
+													<!-- Grid row -->
+													<div class="row">
+														<!-- Grid column -->
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_10.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_11.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_12.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--Second slide-->
+										<!--Second slide-->
+										<div class="carousel-item">
+											<div class="testimonial">
+												<!--Avatar-->
+												<div class="avatar mx-auto mb-1">
+													<!-- Grid row -->
+													<div class="row">
+														<!-- Grid column -->
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_13.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_14.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+														<div class="col-lg-4 col-md-12">
+															<img src="${pageContext.request.contextPath}/resources/img/swj/sub_15.jpg" class="rounded" height='300px' alt="First sample avatar image"> <br> <br>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--Second slide-->
+									</div>
+									<!--Slides-->
+									<!--Controls-->
+									<a class="carousel-control-prev left carousel-control" href="#carousel-example-1" role="button" data-slide="prev">
+										<i class="fas fa-angle-double-left fa-5x"></i><span class="icon-prev" aria-hidden="true"></span> <span class="sr-only">Previous</span>
+									</a>
+									<a class="carousel-control-next right carousel-control" href="#carousel-example-1" role="button" data-slide="next">
+										<i class="fas fa-angle-double-right fa-5x"></i><span class="icon-next" aria-hidden="true"></span> <span class="sr-only">Next</span>
+									</a>
+									<!--Controls-->
+								</div>
+								<!-- Carousel Wrapper -->
+							</div>
+						</section>
+						<!-- Section: Testimonials v.2 -->
+					</div>
+				</div>
+
+			</div>
+		</div>
 		<!--(2) Grid row-->
 		<!-- Central Modal Large Info-->
 		<div class="modal fade" id="centralModalLGInfoNews" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -759,38 +1116,35 @@
 				<!--/.Content-->
 			</div>
 		</div>
+
 		<!-- Central Modal Large Info-->
 		<div class="row wow fadeIn ">
 
 			<!--Grid column-->
 			<div class="col-md-12 mb-2 ">
 				<!--Card-->
-				<div class="card #66bb6a green lighten-1">
-					<!-- Section: Magazine v.3 -->
+				<div class="card">
+					<!-- Card header -->
 					<div class="card-header" onclick="javascript:showNews();">
 						<!-- Section heading -->
 						<h2 class="h2-responsive font-weight-bold text-center my-1">
-							<font size='3' color='white'>모임뉴스</font>
+							<font size='2' color='black'><b>모임뉴스</b></font>
 						</h2>
+						<!-- Section description -->
 					</div>
 					<div id="news" class="card-body #fafafa grey lighten-5">
 						<!-- Grid row -->
 						<div class="row">
 
 							<!-- Grid column -->
-							<div class="col-lg-3 col-md-3 mb-lg-0 mb-1">
+							<div class="col-lg-3 col-md-3 mb-lg-0 mb-3">
 
-								<!-- Featured news -->
-								<div class="single-news mb-1">
-
-									<!-- Image -->
-									<div class="view rounded z-depth-2 mb-1">
-										<img src="${pageContext.request.contextPath}/resources/img/swj/home_news.jpg" class="img-fluid" alt="">
-									</div>
-									<br>
-								</div>
-								<!-- Featured news -->
-
+								<!-- Image -->
+								<button class="list-group-item list-group-item-action waves-effect btn btn-sm #eceff1 blue-grey lighten-5" type="button" aria-haspopup="true" aria-expanded="false">
+									<center>
+										<i class="fas fa-book-open fa-1x"></i>&nbsp;&nbsp;&nbsp;<font size='2' color='black'>집회소식</font>
+									</center>
+								</button>
 								<c:forEach items="${sermonList}" var="sermon" varStatus="status">
 									<!-- Small news -->
 									<div class="single-news mb-1">
@@ -800,11 +1154,11 @@
 												<c:set var="string1" value="${sermon.title}" />
 												<c:set var="string2" value="${fn:replace(string1, 'New', '')}" />
 												<a>
-													<font size='3'>[${sermon.regdate}] ${string2}</font>
+													<font size='2'>&nbsp;&nbsp;&nbsp;&nbsp;${sermon.regdate}</font>&nbsp;<font size='2'> ${string2}</font>
 												</a>
 											</div>
 											<a>
-												<i class="fas fa-angle-double-right"></i>
+												<i class="fas fa-angle-double-right"></i>&nbsp;&nbsp;
 											</a>
 										</div>
 
@@ -816,19 +1170,13 @@
 							<!-- Grid column -->
 
 							<!-- Grid column -->
-							<div class="col-lg-3 col-md-3 mb-md-0 mb-1">
+							<div class="col-lg-3 col-md-3 mb-md-0 mb-3">
 
-								<!-- Featured news -->
-								<div class="single-news mb-1">
-
-									<!-- Image -->
-									<div class="view rounded z-depth-2 mb-1">
-										<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/swj/home_local.jpg" alt="Sample image">
-									</div>
-									<br>
-
-								</div>
-								<!-- Featured news -->
+								<button class="list-group-item list-group-item-action waves-effect btn btn-sm #eceff1 blue-grey lighten-5" type="button" aria-haspopup="true" aria-expanded="false">
+									<center>
+										<i class="fas fa-bible fa-1x"></i>&nbsp;&nbsp;&nbsp;<font size='2' color='black'>지역교회/선교</font>
+									</center>
+								</button>
 
 								<c:forEach items="${localList}" var="local" varStatus="status">
 									<!-- Small news -->
@@ -839,11 +1187,11 @@
 												<c:set var="string1" value="${local.title}" />
 												<c:set var="string2" value="${fn:replace(string1, 'New', '')}" />
 												<a>
-													<font size='3'>[${local.regdate}] ${string2}</font>
+													<font size='2'>&nbsp;&nbsp;&nbsp;&nbsp;${local.regdate}</font>&nbsp;<font size='2'> ${string2}</font>
 												</a>
 											</div>
 											<a>
-												<i class="fas fa-angle-double-right"></i>
+												<i class="fas fa-angle-double-right"></i>&nbsp;&nbsp;
 											</a>
 										</div>
 
@@ -855,19 +1203,13 @@
 							<!-- Grid column -->
 
 							<!-- Grid column -->
-							<div class="col-lg-3 col-md-3 mb-0 mb-1">
+							<div class="col-lg-3 col-md-3 mb-0 mb-3">
 
-								<!-- Featured news -->
-								<div class="single-news mb-1">
-
-									<!-- Image -->
-									<div class="view rounded z-depth-2 mb-1">
-										<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/swj/home_mission.jpg" alt="Sample image">
-									</div>
-									<br>
-
-								</div>
-								<!-- Featured news -->
+								<button class="list-group-item list-group-item-action waves-effect btn btn-sm #eceff1 blue-grey lighten-5" type="button" aria-haspopup="true" aria-expanded="false">
+									<center>
+										<i class="fas fa-archway fa-1x"></i>&nbsp;&nbsp;&nbsp;<font size='2' color='black'>교육/훈련</font>
+									</center>
+								</button>
 
 								<c:forEach items="${eduList}" var="edu" varStatus="status">
 									<!-- Small news -->
@@ -878,11 +1220,11 @@
 												<c:set var="string1" value="${edu.title}" />
 												<c:set var="string2" value="${fn:replace(string1, 'New', '')}" />
 												<a>
-													<font size='3'>[${edu.regdate}] ${string2}</font>
+													<font size='2'>&nbsp;&nbsp;&nbsp;&nbsp;${edu.regdate}</font>&nbsp;<font size='2'> ${string2}</font>
 												</a>
 											</div>
 											<a>
-												<i class="fas fa-angle-double-right"></i>
+												<i class="fas fa-angle-double-right"></i>&nbsp;&nbsp;
 											</a>
 										</div>
 
@@ -894,19 +1236,13 @@
 							<!-- Grid column -->
 
 							<!-- Grid column -->
-							<div class="col-lg-3 col-md-3 mb-0 mb-1">
+							<div class="col-lg-3 col-md-3 mb-0 mb-3">
 
-								<!-- Featured news -->
-								<div class="single-news mb-1">
-
-									<!-- Image -->
-									<div class="view rounded z-depth-2 mb-1">
-										<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/swj/home_joy.jpg" alt="Sample image">
-									</div>
-									<br>
-
-								</div>
-								<!-- Featured news -->
+								<button class="list-group-item list-group-item-action waves-effect btn btn-sm #eceff1 blue-grey lighten-5" type="button" aria-haspopup="true" aria-expanded="false">
+									<center>
+										<i class="fas fa-bullhorn fa-1x"></i>&nbsp;&nbsp;&nbsp;<font size='2' color='black'>경조사</font>
+									</center>
+								</button>
 
 								<c:forEach items="${joyList}" var="joy" varStatus="status">
 									<!-- Small news -->
@@ -917,11 +1253,11 @@
 												<c:set var="string1" value="${joy.title}" />
 												<c:set var="string2" value="${fn:replace(string1, 'New', '')}" />
 												<a>
-													<font size='3'>[${joy.regdate}] ${string2}</font>
+													<font size='2'>&nbsp;&nbsp;&nbsp;&nbsp;${joy.regdate}</font>&nbsp;<font size='2'> ${string2}</font>
 												</a>
 											</div>
 											<a>
-												<i class="fas fa-angle-double-right"></i>
+												<i class="fas fa-angle-double-right"></i>&nbsp;&nbsp;
 											</a>
 										</div>
 
@@ -1037,194 +1373,183 @@
 			<div class="col-md-6 mb-2">
 
 				<!--Card-->
-				<div class="card #66bb6a green lighten-1">
+				<div class="card">
 
 					<!-- Card header -->
 					<div class="card-header" onclick="javascript:showDailyBible();">
 						<!-- Section heading -->
 						<h2 class="h2-responsive font-weight-bold text-center my-1">
-							<font size='3' color='white'>연대기성경</font>
+							<font size='2' color='black'><b>연대기성경</b></font>
 						</h2>
 						<!-- Section description -->
 					</div>
 
 					<!--Card content-->
 					<div id="dailyBible" class="card-body #fafafa grey lighten-5">
-						<!-- Image -->
-						<div class="view rounded z-depth-2 mb-1">
-							<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/swj/bible_thumb.jpg" alt="Sample image">
-							<a>
-								<div class="mask flex-center mask pattern-4">
-									<p class="white-text">
-										<font size='5'><strong>연대기성경읽기</strong></font>
-									</p>
-								</div>
-							</a>
-						</div>
 						<!-- List group links -->
 						<div class="list-group list-group-flush">
-							<a class="list-group-item list-group-item-action waves-effect btn btn-sm success-color-dark #007E33" data-toggle="modal" data-target="#centralModalLGInfoBibleToday">
-								<font size='2'><div id="dayCount">오늘 말씀 보기</div></font>
-							</a>
-							<a class="list-group-item list-group-item-action waves-effect btn btn-sm success-color-dark #007E33" data-toggle="modal" data-target="#centralModalLGInfoBibleYester">
-								<font size='2'>어제 말씀 보기</font>
-							</a>
-							<a class="list-group-item list-group-item-action waves-effect btn btn-sm success-color-dark #007E33" data-toggle="modal" data-target="#centralModalLGInfoBibleTommo">
-								<font size='2'>내일 말씀 보기</font>
-							</a>
+							<a class="list-group-item list-group-item-action waves-effect btn btn-sm #eceff1 blue-grey lighten-5" data-toggle="modal" data-target="#centralModalLGInfoBibleToday">
+								<font size='2' color='black'><b><div id="dayCount">오늘 말씀 보기</b>
 						</div>
-						<br>
-						<!-- List group links -->
-						<canvas id="doughnutChart"></canvas>
+						</font>
+						</a>
+						<a class="list-group-item list-group-item-action waves-effect btn btn-sm #eceff1 blue-grey lighten-5" data-toggle="modal" data-target="#centralModalLGInfoBibleYester">
+							<font size='2' color='black'>어제 말씀 보기</font>
+						</a>
+						<a class="list-group-item list-group-item-action waves-effect btn btn-sm #eceff1 blue-grey lighten-5" data-toggle="modal" data-target="#centralModalLGInfoBibleTommo">
+							<font size='2' color='black'>내일 말씀 보기</font>
+						</a>
 					</div>
-
+					<br>
+					<!-- List group links -->
+					<canvas id="doughnutChart"></canvas>
 				</div>
-				<!--/.Card-->
 
 			</div>
-			<!--Grid column-->
-
-			<!--Grid column-->
-			<div class="col-md-6 mb-2">
-
-				<!--Card-->
-				<div class="card #66bb6a green lighten-1">
-
-					<!-- Card header -->
-					<div class="card-header" onclick="javascript:showRoute();">
-						<!-- Section heading -->
-						<h2 class="h2-responsive font-weight-bold text-center my-1">
-							<font size='3' color='white'>찾아오시는길</font>
-						</h2>
-						<!-- Section description -->
-					</div>
-
-					<!--Card content-->
-					<div id="route" class="card-body #fafafa grey lighten-5">
-						<!--Google map-->
-						<div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 500px">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3173.991018923548!2d127.0050839156934!3d37.29534667984956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b5cd024e33fe1%3A0xf5ebd5548c0ca8c9!2z6rK96riw64-EIOyImOybkOyLnCDsnqXslYjqtawg7KCV7J6QMuuPmSDshqHsoJXroZw5MOuyiOq4uCAz!5e0!3m2!1sko!2skr!4v1566596028604!5m2!1sko!2skr" frameborder="0" style="border: 0" allowfullscreen></iframe>
-						</div>
-					</div>
-
-				</div>
-				<!--/.Card-->
-
-			</div>
-			<!--Grid column-->
+			<!--/.Card-->
 
 		</div>
-		<!--(3) Grid row-->
+		<!--Grid column-->
 
-		<!--(4) Grid row-->
-		<div class="row wow fadeIn">
+		<!--Grid column-->
+		<div class="col-md-6 mb-2">
 
-			<!--Grid column-->
-			<div class="col-md-12 mb-2">
-				<!--Card-->
-				<div class="card #66bb6a green lighten-1">
-					<!-- Section: Magazine v.3 -->
-					<div class="card-header" onclick="javascript:showMovie();">
-						<!-- Section heading -->
-						<h2 class="h2-responsive font-weight-bold text-center my-1">
-							<font size='3' color='white'>말씀영상</font>
-						</h2>
+			<!--Card-->
+			<div class="card">
+
+				<!-- Card header -->
+				<div class="card-header" onclick="javascript:showRoute();">
+					<!-- Section heading -->
+					<h2 class="h2-responsive font-weight-bold text-center my-1">
+						<font size='2' color='black'><b>찾아오시는길</b></font>
+					</h2>
+					<!-- Section description -->
+				</div>
+
+				<!--Card content-->
+				<div id="route" class="card-body #fafafa grey lighten-5">
+					<!--Google map-->
+					<div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 500px">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3173.991018923548!2d127.0050839156934!3d37.29534667984956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b5cd024e33fe1%3A0xf5ebd5548c0ca8c9!2z6rK96riw64-EIOyImOybkOyLnCDsnqXslYjqtawg7KCV7J6QMuuPmSDshqHsoJXroZw5MOuyiOq4uCAz!5e0!3m2!1sko!2skr!4v1566596028604!5m2!1sko!2skr" frameborder="0" style="border: 0" allowfullscreen></iframe>
 					</div>
-					<div id="movie" class="card-body #fafafa grey lighten-5">
-						<!-- Grid row -->
-						<div class="row">
-							<!-- Section: Social card with video-->
-							<!-- Grid column -->
-							<div class="col-md-3 col-lg-3 mb-1">
+				</div>
 
-								<!-- Card -->
-								<div class="card news-card">
+			</div>
+			<!--/.Card-->
 
-									<!-- Card video-->
-									<div class="embed-responsive embed-responsive-1by1">
-										<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/659HqOv9nTk" allowfullscreen></iframe>
-									</div>
+		</div>
+		<!--Grid column-->
 
-									<!-- Card content -->
-									<div class="card-body success-color-dark #007E33">
-										<font size='2' color='white'>#성경적신앙생활1</font><br> <font size='3' color='white'><b>송찬호</b></font>
-									</div>
-									<!-- Card content -->
+	</div>
+	<!--(3) Grid row--> <!--(4) Grid row-->
+	<div class="row wow fadeIn">
+
+		<!--Grid column-->
+		<div class="col-md-12 mb-2">
+			<!--Card-->
+			<div class="card">
+				<!-- Section: Magazine v.3 -->
+				<div class="card-header" onclick="javascript:showMovie();">
+					<!-- Section heading -->
+					<h2 class="h2-responsive font-weight-bold text-center my-1">
+						<font size='2' color='black'><b>말씀영상</b></font>
+					</h2>
+				</div>
+				<div id="movie" class="card-body #fafafa grey lighten-5">
+					<!-- Grid row -->
+					<div class="row">
+						<!-- Section: Social card with video-->
+						<!-- Grid column -->
+						<div class="col-md-3 col-lg-3 mb-1">
+
+							<!-- Card -->
+							<div class="card news-card">
+
+								<!-- Card video-->
+								<div class="embed-responsive embed-responsive-1by1">
+									<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/659HqOv9nTk" allowfullscreen></iframe>
 								</div>
-								<!-- Card -->
 
-							</div>
-							<!-- Grid column -->
-							<!-- Grid column -->
-							<div class="col-md-3 col-lg-3 mb-1">
-
-								<!-- Card -->
-								<div class="card news-card">
-
-									<!-- Card video-->
-									<div class="embed-responsive embed-responsive-1by1">
-										<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iq65CCdQSYY" allowfullscreen></iframe>
-									</div>
-
-									<!-- Card content -->
-									<div class="card-body success-color-dark #007E33">
-										<font size='2' color='white'>#성경적신앙생활2</font><br> <font size='3' color='white'><b>송찬호</b></font>
-									</div>
-									<!-- Card content -->
+								<!-- Card content -->
+								<div class="card-body #eceff1 blue-grey lighten-5">
+									<font size='2' color='black'>#성경적신앙생활1</font><br> <font size='2' color='black'>송찬호</font>
 								</div>
-								<!-- Card -->
-
+								<!-- Card content -->
 							</div>
-							<!-- Grid column -->
-							<!-- Grid column -->
-							<div class="col-md-3 col-lg-3 mb-1">
+							<!-- Card -->
 
-								<!-- Card -->
-								<div class="card news-card">
-
-									<!-- Card video-->
-									<div class="embed-responsive embed-responsive-1by1">
-										<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uYk5FssUu18" allowfullscreen></iframe>
-									</div>
-
-									<!-- Card content -->
-									<div class="card-body success-color-dark #007E33">
-										<font size='2' color='white'>#성경적신앙생활3</font><br> <font size='3' color='white'><b>송찬호</b></font>
-									</div>
-									<!-- Card content -->
-								</div>
-								<!-- Card -->
-
-							</div>
-							<!-- Grid column -->
-							<!-- Grid column -->
-							<div class="col-md-3 col-lg-3 mb-1">
-
-								<!-- Card -->
-								<div class="card news-card">
-
-									<!-- Card video-->
-									<div class="embed-responsive embed-responsive-1by1">
-										<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uSPLz40lF0I" allowfullscreen></iframe>
-									</div>
-
-									<!-- Card content -->
-									<div class="card-body success-color-dark #007E33">
-										<font size='2' color='white'>#성경적신앙생활4</font><br> <font size='3' color='white'><b>송찬호</b></font>
-									</div>
-									<!-- Card content -->
-								</div>
-								<!-- Card -->
-
-							</div>
-							<!-- Grid column -->
-							<!-- Section: Social card with video-->
 						</div>
+						<!-- Grid column -->
+						<!-- Grid column -->
+						<div class="col-md-3 col-lg-3 mb-1">
+
+							<!-- Card -->
+							<div class="card news-card">
+
+								<!-- Card video-->
+								<div class="embed-responsive embed-responsive-1by1">
+									<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iq65CCdQSYY" allowfullscreen></iframe>
+								</div>
+
+								<!-- Card content -->
+								<div class="card-body #eceff1 blue-grey lighten-5">
+									<font size='2' color='black'>#성경적신앙생활2</font><br> <font size='2' color='black'>송찬호</font>
+								</div>
+								<!-- Card content -->
+							</div>
+							<!-- Card -->
+
+						</div>
+						<!-- Grid column -->
+						<!-- Grid column -->
+						<div class="col-md-3 col-lg-3 mb-1">
+
+							<!-- Card -->
+							<div class="card news-card">
+
+								<!-- Card video-->
+								<div class="embed-responsive embed-responsive-1by1">
+									<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uYk5FssUu18" allowfullscreen></iframe>
+								</div>
+
+								<!-- Card content -->
+								<div class="card-body #eceff1 blue-grey lighten-5">
+									<font size='2' color='black'>#성경적신앙생활3</font><br> <font size='2' color='black'>송찬호</font>
+								</div>
+								<!-- Card content -->
+							</div>
+							<!-- Card -->
+
+						</div>
+						<!-- Grid column -->
+						<!-- Grid column -->
+						<div class="col-md-3 col-lg-3 mb-1">
+
+							<!-- Card -->
+							<div class="card news-card">
+
+								<!-- Card video-->
+								<div class="embed-responsive embed-responsive-1by1">
+									<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uSPLz40lF0I" allowfullscreen></iframe>
+								</div>
+
+								<!-- Card content -->
+								<div class="card-body #eceff1 blue-grey lighten-5">
+									<font size='2' color='black'>#성경적신앙생활4</font><br> <font size='2' color='black'>송찬호</font>
+								</div>
+								<!-- Card content -->
+							</div>
+							<!-- Card -->
+
+						</div>
+						<!-- Grid column -->
+						<!-- Section: Social card with video-->
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--(4) Grid row-->
+	</div>
+	<!--(4) Grid row-->
 
 	</div>
 	</main>
