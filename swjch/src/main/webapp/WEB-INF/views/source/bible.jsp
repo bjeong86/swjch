@@ -159,7 +159,7 @@
 		$("#audio").append("<font size='4' color='white'>연대기말씀("+day+"일차) 음성으로 듣기</font><br>");
 		$("#audio").append("<br>");
 		
-		if(day == 10 || day == 9){
+		if(day == 10 || day == 9 || day == 44){
 			$("#audio").append('<audio src="${pageContext.request.contextPath}/resources/mp3/day_'+day+'_1.mp3" style="width: 97%" controls></audio><br><br>');
 			$("#audio").append('<audio src="${pageContext.request.contextPath}/resources/mp3/day_'+day+'_2.mp3" style="width: 97%" controls></audio><br>');
 		}else{
@@ -337,6 +337,9 @@
 
 										<br>
 									</button>
+									<!-- 
+									<a href="#" onclick="javascript:readBible();">...</a>
+									 -->
 									<div class="card-body">
 										<div id="bibleTitle"></div>
 										<div class="card-text">
@@ -344,9 +347,6 @@
 										</div>
 										<input type="hidden" id="kakaoMsg" value="" />
 									</div>
-									<!-- 
-									<a href="#" onclick="javascript:readBible();">...</a>
-									 -->
 									<button type="button" class="btn btn-sm btn-unique" style="width: 98%" onclick="javascript:sendLink();">
 										<font size='2' color='white'>KAKAOTalk 공유</font>
 									</button>

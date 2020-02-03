@@ -26,6 +26,9 @@
 				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/plan.do">
 						<font size='2' color='black'><strong>연간계획</strong></font>
 					</a></li>
+				<li class="nav-item"><a class="nav-link h3 my-1" href="https://band.us/invite/a0a829j1T2v4D">
+						<font size='2' color='green'><strong>BAND</strong></font>
+					</a></li>
 				<li class="nav-item"><a class="nav-link h3 my-1" href="${pageContext.request.contextPath}/userList.do">
 						<font size='2' color='black'><strong>주소록</strong></font>
 					</a></li>
