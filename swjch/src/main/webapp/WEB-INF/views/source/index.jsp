@@ -223,26 +223,6 @@
 				</div>
 				<!-- Jumbotron -->
 
-				<!-- Jumbotron -->
-				<div class="card mb-2 #fafafa grey lighten-5">
-					<div class="card-header" onclick="javascript:showSentence();">
-						<!-- Section heading -->
-						<h2 class="h2-responsive font-weight-bold text-center my-1">
-							<font size='2' color='black'><b>금주암송말씀</b></font>
-						</h2>
-					</div>
-
-					<!-- Card content -->
-					<div class="card-body text-center " id="sentence">
-						<!-- Text -->
-						<p class="card-text py-1 font-weight-bold">
-							<font size='2'>하나님이 미리 아신 자들을 또한 그 아들의 형상을 본받게 하기 위하여 미리<br> 정하셨으니 이는 그로 많은 형제 중에서 맏아들이 되게 하려 하심이니라.<br> 로마서 8장 29절
-							</font>
-						</p>
-					</div>
-
-				</div>
-
 			</div>
 			<!--Grid column-->
 

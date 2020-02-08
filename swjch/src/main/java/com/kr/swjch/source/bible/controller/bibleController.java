@@ -136,7 +136,7 @@ public class bibleController {
 		String text = "";
 		for(int i = 0; i < bibleContents.size(); i++){
 			
-//			if(bibleContents.get(i).getChapter().equals("31") || bibleContents.get(i).getChapter().equals("32")){
+//			if(bibleContents.get(i).getChapter().equals("14") || bibleContents.get(i).getChapter().equals("15")){
 				if("1".equals(bibleContents.get(i).getVerse())){
 					text += bibleContents.get(i).getTitle();
 					text += "<say-as interpret-as=\"kakao:number\" format=\"chinese\">";
